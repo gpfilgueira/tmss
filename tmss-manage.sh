@@ -65,11 +65,7 @@ while true; do
 
     case "$key" in
         enter)
-            if [ -n "$TMUX" ]; then
-                tmux switch-client -c "$TMUX_PANE" -t "$session"
-            else
-                tmux attach-session -t "$session"
-            fi
+            tmux switch-client -t "$session" 2>/dev/null || tmux attach-session -t "$session"
             break
             ;;
         ctrl-d)

@@ -10,7 +10,6 @@ mkdir -p "$TMSS_CONFIG_DIR/preconf-sessions"
 declare -A preconf_sessions
 [[ -f "$LIST_FILE" ]] && source "$LIST_FILE"
 
-# Create the directory if it doesn't exist
 selection=$(
   (
     find ~ -mindepth 0 -maxdepth 1 \
@@ -31,7 +30,7 @@ selection=$(
          -mindepth 0 -maxdepth 4 \
          \( -path "$HOME/nw/vpn/latitude/secrets" -prune \) -o -type d -print
 
-    find "$HOME/university" "$HOME/.dotfiles" "$HOME/projects" -type d -print
+    find "$HOME/university" "$HOME/.dotfiles" "$HOME/dev" "$HOME/projects" -type d -print
  ) | fzf --bind 'ctrl-s:abort' --expect=ctrl-s
 )
 
