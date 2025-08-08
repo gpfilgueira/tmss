@@ -54,7 +54,7 @@ fi
 
 if [[ -n "$target" ]]; then
     if [[ -n "$TMUX" ]]; then
-        tmux switch-client -c "$TMUX_PANE" -t "$target"
+        tmux switch-client -t "$target"
     else
         tmux attach -t "$target"
     fi
